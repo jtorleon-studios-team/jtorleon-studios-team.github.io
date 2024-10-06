@@ -1,4 +1,5 @@
 
-# JTORLEON STUDIOS TEAM
+# LINK TREE - JTORLEON STUDIOS TEAM
 
-coming soon
+[![deploy](https://github.com/jtorleon-studios-team/jtorleon-studios-team.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/jtorleon-studios-team/jtorleon-studios-team.github.io/actions/workflows/deploy.yml)
+

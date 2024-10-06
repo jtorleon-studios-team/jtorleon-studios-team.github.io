@@ -1,9 +1,10 @@
-import { Injectable, OnDestroy, OnInit } from "@angular/core";
+
+import { Injectable } from "@angular/core";
 import { Meta, Title } from "@angular/platform-browser";
 import { Subscription } from "rxjs";
 
 @Injectable({ providedIn: 'root' })
-export abstract class BaseComponent implements OnInit, OnDestroy {
+export abstract class BaseComponent {
   private _subscriptions: Subscription[];
 
   public constructor(
@@ -17,11 +18,11 @@ export abstract class BaseComponent implements OnInit, OnDestroy {
     this.setDescription(contentDescription);
   }
 
-  public ngOnInit(): void {
+  public onInit(): void {
     this._subscriptions = this.attachSubscriptions();
   }
 
-  public ngOnDestroy(): void {
+  public onDestroy(): void {
     this._subscriptions.forEach(v => v.unsubscribe());
     this._subscriptions.splice(0, this._subscriptions.length);
   }
@@ -36,21 +37,6 @@ export abstract class BaseComponent implements OnInit, OnDestroy {
   public setDescription(contentDescription: string): void {
     this.meta.updateTag({ name: 'description', content: contentDescription });
     this.meta.updateTag({ name: 'og:description', content: contentDescription });
-  }
-
-  public scrollToTop(): void { BaseComponent.scrollToTop() }
-  public static scrollToTop(): void {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
-
-  public static getScrollTop() {
-    return document.body.scrollTop || document.documentElement.scrollTop;
-  }
-
-  public static hasScrollToBottom(threshold = 150): boolean {
-    const position = window.scrollY + window.innerHeight;
-    const height = document.body.scrollHeight;
-    return position > height - threshold;
   }
 
 } 

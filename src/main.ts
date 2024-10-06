@@ -1,4 +1,4 @@
-/// <reference types="@angular/localize" /> 
+///  <reference types="@angular/localize" /> 
 import { LOCALE_ID } from "@angular/core";
 import { bootstrapApplication } from "@angular/platform-browser";
 import { provideHttpClient, withFetch } from "@angular/common/http";

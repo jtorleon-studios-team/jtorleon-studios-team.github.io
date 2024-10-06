@@ -28,6 +28,13 @@ export class HomeComponent extends BaseComponent implements OnInit, OnDestroy {
     return [];
   }
 
+  public ngOnInit(): void {
+    super.onInit();
+  }
+
+  public ngOnDestroy(): void {
+    super.onDestroy();
+  }
 
 
 }

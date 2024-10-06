@@ -1,7 +1,7 @@
 import { Component, Input } from "@angular/core";
 
 @Component({
-  selector: "svg-use",
+  selector: "app-svg-use",
   standalone: true,
   template: `
     <svg
@@ -28,11 +28,11 @@ export class SvgUseComponent {
 
   // I n p u t
 
-  @Input("paramUseHref")
+  @Input()
   public set paramUseHref(v: string) { this._useHref = v }
-  @Input("paramHeight")
+  @Input()
   public set paramHeight(v: number) { this._height = v }
-  @Input("paramWidth")
+  @Input()
   public set paramWidth(v: number) { this._width = v }
 
   // G e t t e r

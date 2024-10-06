@@ -5,7 +5,7 @@ import { SvgUseComponent } from "@/views/components/svg-use.component";
 
 @Component({
   standalone: true,
-  selector: "header-component",
+  selector: "app-header-component",
   imports: [
     RouterLink,
     CommonModule,

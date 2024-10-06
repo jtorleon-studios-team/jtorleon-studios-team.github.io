@@ -1,15 +1,13 @@
-import { style } from "@angular/animations";
-import { AfterViewInit, Component, ElementRef, ViewChild } from "@angular/core";
-import { max } from "rxjs";
+import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from "@angular/core";
 
 @Component({
-  selector: "rain-emoji",
+  selector: "app-rain-emoji",
   standalone: true,
   template: `
   <div #refRainEmoji class="rain-emoji"></div>
   `,
 })
-export class RainEmojiComponent implements AfterViewInit {
+export class RainEmojiComponent implements AfterViewInit, OnDestroy {
   private static EMOJIS = [
     "🎮", "🖥️", "😜", "🎲", "🎁", "🎉", "🎈", "💎", "⚡",
     "💩", "🫧", "🍎", "🍊", "🍋", "🍉", "🍇", "👾",
