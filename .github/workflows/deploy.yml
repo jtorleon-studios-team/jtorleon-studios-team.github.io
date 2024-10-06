@@ -1,7 +1,10 @@
-name: DEPLOY_STATIC_CONTENT
-run-name: ${{ github.actor }} - Deploy static content to Pages 
-on:  
-  workflow_dispatch: 
+name: deploy
+run-name: ${{ github.actor }} - deploy github website 
+on:
+  push:
+    paths:
+      - 'dist/**'
+  workflow_dispatch:
 permissions:
   contents: read
   pages: write
