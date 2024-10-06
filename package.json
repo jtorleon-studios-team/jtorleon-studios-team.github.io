@@ -6,8 +6,8 @@
     "ng": "ng",
     "dev": "ng serve",
     "start": "ng serve",
-    "build": "ng build --localize --optimization --base-href /pages/dist/browser/",
-    "watch_for_express": "ng build --watch --localize --configuration development --base-href /",
+    "build": "ng build --optimization --base-href /dist/browser/",
+    "gh_build": "ng build --optimization --base-href /",
     "watch_for_liveserver": "ng build --localize --watch --configuration development --base-href /pages/dist/browser/",
     "test": "ng test",
     "extract_i18n": "ng extract-i18n --format json --output-path src/locale"
