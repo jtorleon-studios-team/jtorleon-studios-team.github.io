@@ -35,7 +35,9 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/assets",
-              "src/robot.txt"
+              "src/robot.txt",
+              "src/404.html",
+              "src/privacy-policy.txt"
             ],
             "styles": [
               "src/styles.scss"
@@ -95,7 +97,9 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/assets",
-              "src/robot.txt"
+              "src/robot.txt",
+              "src/404.html",
+              "src/privacy-policy.txt"
             ],
             "styles": [
               "src/styles.scss"
