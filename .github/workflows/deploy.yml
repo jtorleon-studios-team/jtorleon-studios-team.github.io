@@ -1,9 +1,7 @@
 name: deploy
 run-name: ${{ github.actor }} - deploy github website 
 on:
-  push:
-    paths:
-      - 'dist/**'
+  # push: paths: - 'dist/**'
   workflow_dispatch:
 permissions:
   contents: read
