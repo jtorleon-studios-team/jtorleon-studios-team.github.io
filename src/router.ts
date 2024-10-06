@@ -2,6 +2,8 @@ import { ErrorComponent } from "@/views/error.component";
 import { HomeComponent } from "@/views/home/home.component";
 import { Route } from "@angular/router";
 
+// TODO: TEST
+
 export const ROUTES: Route[] = [
   { // ========================== H O M E ========================== 
     path: "home",
