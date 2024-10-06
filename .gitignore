@@ -1,23 +1,66 @@
-# output
-#*dist/
-*build/
-*coverage/
-*.angular/
-*node_modules/
-*npm-debug.log*
-*yarn-debug.log*
-*yarn-error.log*
-*.log
-
 # Environment variables
 *.env
 *.env.local
 *.env.development.local
 *.env.test.local
 *.env.production.local
+ 
+# Angular
+/dist/
+/node_modules/
+/package-lock.json
+/.angular
+/.cache
+/coverage/
+/e2e/test-results/
+*.js
+*.js.map
+*.css
+*.css.map
 
 # IDE
-*.vscode/
-*.idea/ 
-*.sublime-project
-*.sublime-workspace
+/.vscode/
+/.idea/
+/*.sublime-project
+/*.sublime-workspace
+*.sublime-settings
+*.tmproj
+
+# Operating System
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+desktop.ini
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Misc
+*.tgz
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Build results
+/dist/
+/build/
+/out-tsc/
+/target/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Visual Studio Code settings
+.vscode/

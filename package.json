@@ -4,11 +4,11 @@
   "private": false,
   "scripts": {
     "ng": "ng",
-    "dev": "ng serve",
+    "dev": "ng serve --extra-webpack-config ./webpack.partial.js -o",
     "start": "ng serve",
-    "build": "ng build --optimization --base-href /dist/browser/",
+    "build": "ng build --extra-webpack-config ./webpack.partial.js --optimization --base-href /dist/",
     "gh_build": "ng build --optimization --base-href /",
-    "watch_for_liveserver": "ng build --localize --watch --configuration development --base-href /pages/dist/browser/",
+    "watch_for_liveserver": "ng build --localize --watch --configuration development --base-href /pages/dist/",
     "test": "ng test",
     "extract_i18n": "ng extract-i18n --format json --output-path src/locale",
     "lint": "ng lint"
@@ -41,6 +41,7 @@
     "@typescript-eslint/parser": "7.11.0",
     "eslint": "8.57.0",
     "globals": "^15.2.0",
+    "ngx-build-plus": "^18.0.0",
     "prettier": "^3.2.5",
     "typescript": "~5.5.4",
     "typescript-eslint": "^7.8.0"
