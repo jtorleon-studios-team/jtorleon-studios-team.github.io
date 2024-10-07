@@ -13,9 +13,7 @@
 /.cache
 /coverage/
 /e2e/test-results/
-*.js
 *.js.map
-*.css
 *.css.map
 
 # IDE

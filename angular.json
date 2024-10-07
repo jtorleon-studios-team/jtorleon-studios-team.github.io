@@ -35,7 +35,6 @@
             "assets": [
               "src/assets",
               "src/robot.txt",
-              "src/404.html",
               "src/privacy-policy.txt"
             ],
             "styles": [
@@ -98,7 +97,6 @@
             "assets": [
               "src/assets",
               "src/robot.txt",
-              "src/404.html",
               "src/privacy-policy.txt"
             ],
             "styles": [

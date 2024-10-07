@@ -2,18 +2,18 @@ import { BaseComponent } from "../base.component";
 import { CommonModule } from "@angular/common";
 import { Component, OnDestroy, OnInit, } from "@angular/core";
 import { Meta, Title } from "@angular/platform-browser";
-import { ActivatedRoute, RouterLink } from "@angular/router";
+import { ActivatedRoute } from "@angular/router";
 import { Subscription } from "rxjs";
 import { HeaderComponent } from "../components/header.component";
 
 @Component({
-  selector: "app-home",
+  selector: "app-contacts-us",
   standalone: true,
-  templateUrl: "./home.component.html",
-  styleUrl: "./home.component.scss",
-  imports: [CommonModule, HeaderComponent, RouterLink]
+  templateUrl: "./contact-us.component.html",
+  styleUrl: "./contact-us.component.scss",
+  imports: [CommonModule, HeaderComponent]
 })
-export class HomeComponent extends BaseComponent implements OnInit, OnDestroy {
+export class ContactsUsComponent extends BaseComponent implements OnInit, OnDestroy {
 
 
   public constructor(
@@ -21,7 +21,7 @@ export class HomeComponent extends BaseComponent implements OnInit, OnDestroy {
     private readonly _title: Title,
     private readonly _meta: Meta
   ) {
-    super(_title, _meta, "home", "home");
+    super(_title, _meta, "contacts-us", "contacts-us");
   }
 
   public override attachSubscriptions(): Subscription[] {

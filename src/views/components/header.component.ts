@@ -1,7 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
 import { RouterLink } from "@angular/router";
-import { SvgUseComponent } from "@/views/components/svg-use.component";
+import { SvgUseComponent } from "../components/svg-use.component";
 
 @Component({
   standalone: true,
@@ -14,7 +14,7 @@ import { SvgUseComponent } from "@/views/components/svg-use.component";
   template: `
     <header>
       <h1 class="title">
-        <a routerLink="/home">JTorLeon Studios</a>
+        <a routerLink="/">JTorLeon Studios</a>
       </h1>  
     </header>
   `,

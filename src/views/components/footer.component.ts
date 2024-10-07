@@ -1,15 +1,17 @@
 import { Component } from "@angular/core";
+import { RouterLink } from "@angular/router";
 
 @Component({
-  selector: "app-footer-component",
   standalone: true,
+  selector: "app-footer-component",
+  imports: [RouterLink],
   template: `
     <footer>
       <p>
-        <a href="contact.html" 
-          title="contact us">contact us</a> -
-        <a href="privacy-policy.txt" 
-          title="download privacy policy" 
+        <a routerLink="contact-us"
+          title="visit contact us!">contact us</a> -
+        <a routerLink="privacy-policy"
+          title="see our privacy policy" 
           download="privacy-policy.txt">privacy policy</a>
       </p>
     </footer>

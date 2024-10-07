@@ -35,13 +35,23 @@
     },
     {
       "files": [
-        "*.html"
+        "*.js"
       ],
+      "env": {
+        "browser": true,
+        "es6": true
+      },
+      "parserOptions": {
+        "ecmaVersion": 2020,
+        "sourceType": "module"
+      },
       "extends": [
-        "plugin:@angular-eslint/template/recommended",
-        "plugin:@angular-eslint/template/accessibility"
+        "eslint:recommended"
       ],
-      "rules": {}
+      "rules": {
+        "no-unused-vars": "warn",
+        "no-undef": "off"
+      }
     }
   ]
 }
