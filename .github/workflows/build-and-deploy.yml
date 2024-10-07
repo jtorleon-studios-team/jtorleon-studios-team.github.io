@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} - build angular and deploy gh page
 on: 
   push:
     paths:
-      - 'dist/**'
+      - 'src/**'
   workflow_dispatch:
 permissions:
   contents: read
