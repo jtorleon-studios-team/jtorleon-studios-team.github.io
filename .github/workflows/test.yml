@@ -27,7 +27,7 @@ jobs:
           apiResponse=$(curl -X POST -H "Content-Type: application/vnd.github+json" -H "Authorization: token ${{ secrets.PAT }}" \
             -d "{ \"query\": \"$queryGraphQL\", \"variables\": { $queryVariable } }" https://api.github.com/graphql)
           echo $apiResponse
-          echo "::set-output name=apiResponse::$content"
+          echo "::set-output name=apiResponse::$apiResponse"
       - run: |
           echo "${{fromJson(steps.set_var.outputs.apiResponse).data}}"
 
