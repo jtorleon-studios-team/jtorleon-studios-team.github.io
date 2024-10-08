@@ -1,0 +1,162 @@
+{
+  "_comment_0": "===============================================",
+  "folders": [
+    {
+      "name": ".",
+      "path": "."
+    },
+    {
+      "name": "./src",
+      "path": "src"
+    }
+  ],
+  "_comment_1": "==============================================",
+  "settings": {
+    "files.exclude": {
+      "node_modules/": true,
+      ".angular/": true,
+      "package-lock.json": true,
+      ".gitignore": true,
+      ".gitattributes": true
+    },
+    "liveServer.settings.multiRootWorkspaceName": ".",
+    "material-icon-theme.files.customClones": [
+      /** ------------------------------------- type*/
+      {
+        "name": "config-icon-file:types",
+        "base": "json",
+        "color": "pink-500",
+        "fileExtensions": [
+          "type.ts",
+          "types.ts"
+        ]
+      },
+      {
+        "name": "config-icon-folder:types",
+        "base": "json",
+        "color": "pink-500",
+        "folderNames": [
+          "types",
+          "type"
+        ]
+      },
+      /** ------------------------------------- helper */
+      {
+        "name": "config-icon-folder:helper",
+        "base": "class",
+        "color": "orange-600",
+        "folderNames": [
+          "helpers",
+          "helper"
+        ]
+      },
+      {
+        "name": "config-icon-file:helper",
+        "base": "typescript",
+        "color": "orange-600",
+        "fileExtensions": [
+          "helper.ts",
+          "helpers.ts"
+        ]
+      },
+      /** ------------------------------------- views  */
+      {
+        "name": "config-icon-folder:views",
+        "base": "angular",
+        "color": "green-500",
+        "folderNames": [
+          "views",
+          "view",
+        ]
+      },
+      {
+        "name": "config-icon-file:view.ts",
+        "base": "angular",
+        "color": "green-500",
+        "fileExtensions": [
+          "view.ts",
+        ],
+      },
+      /** ------------------------------------- component  */
+      {
+        "name": "config-icon-folder:components",
+        "base": "angular",
+        "color": "blue-600",
+        "folderNames": [
+          "components",
+        ]
+      },
+      /** ------------------------------------- component  */
+      {
+        "name": "config-icon-file:base-component.ts",
+        "base": "angular",
+        "color": "gray-200",
+        "fileExtensions": [
+          "base.ts",
+        ],
+      },
+    ],
+  },
+  "_comment_2": "===============================================",
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "ng serve",
+        "type": "chrome",
+        "request": "launch",
+        "preLaunchTask": "npm: start",
+        "url": "http://localhost:4200/"
+      },
+      {
+        "name": "ng test",
+        "type": "chrome",
+        "request": "launch",
+        "preLaunchTask": "npm: test",
+        "url": "http://localhost:9876/debug.html"
+      }
+    ]
+  },
+  "_comment_3": "===============================================",
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "type": "npm",
+        "script": "start",
+        "isBackground": true,
+        "problemMatcher": {
+          "owner": "typescript",
+          "pattern": "$tsc",
+          "background": {
+            "activeOnStart": true,
+            "beginsPattern": {
+              "regexp": "(.*?)"
+            },
+            "endsPattern": {
+              "regexp": "bundle generation complete"
+            }
+          }
+        }
+      },
+      {
+        "type": "npm",
+        "script": "test",
+        "isBackground": true,
+        "problemMatcher": {
+          "owner": "typescript",
+          "pattern": "$tsc",
+          "background": {
+            "activeOnStart": true,
+            "beginsPattern": {
+              "regexp": "(.*?)"
+            },
+            "endsPattern": {
+              "regexp": "bundle generation complete"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

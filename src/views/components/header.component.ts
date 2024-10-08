@@ -1,7 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
 import { RouterLink } from "@angular/router";
-import { SvgUseComponent } from "../components/svg-use.component";
+import { SvgUseComponent } from "./svg-use.component";
 
 @Component({
   standalone: true,

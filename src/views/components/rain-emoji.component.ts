@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-rain-emoji",
@@ -9,18 +10,27 @@ import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from "@ang
 })
 export class RainEmojiComponent implements AfterViewInit, OnDestroy {
   private static EMOJIS = [
-    "🎮", "🖥️", "😜", "🎲", "🎁", "🎉", "🎈", "💎", "⚡",
-    "💩", "🫧", "🍎", "🍊", "🍋", "🍉", "🍇", "👾",
-    "🍑", "🕹️", "✨", "🦊", "🐹", "🎯", "🚀", "🍒", "😁",
-    "🛸", "🥭", "🌕", "🌖", "🐶", "🌗", "🌘", "🪐", "⭐️",
-    "💣", "✨", "🌟", "🌠", "🍓", "🐰", "🌌", "👨‍🚀", "🛰️",
-    "🍌", "🍈", "🍑", "🐱", "💎", "😍", "🎶", "🔮", "🍍",
-    "👑", "⚜️", "😎", "🔶", "🔷", "🟣",
+    [
+      "🧨", "❓❗", "⛔", "🚫", "🚷"
+    ],
+    [
+      "🎮", "🖥️", "😜", "🎲", "🎁", "🎉", "🎈", "💎", "⚡",
+      "💩", "🫧", "🍎", "🍊", "🍋", "🍉", "🍇", "👾",
+      "🍑", "🕹️", "✨", "🦊", "🐹", "🎯", "🚀", "🍒", "😁",
+      "🛸", "🥭", "🌕", "🌖", "🐶", "🌗", "🌘", "🪐", "⭐️",
+      "💣", "✨", "🌟", "🌠", "🍓", "🐰", "🌌", "👨‍🚀", "🛰️",
+      "🍌", "🍈", "🍑", "🐱", "💎", "😍", "🎶", "🔮", "🍍",
+      "👑", "⚜️", "😎", "🔶", "🔷", "🟣",
+    ]
   ];
 
   @ViewChild('refRainEmoji')
   public refRainEmoji!: ElementRef<HTMLDivElement>;
   private animationFrameId: number | null = null;
+
+  public constructor(private router: Router) {
+
+  }
 
   public ngAfterViewInit() {
     this.startRainEffect();
@@ -38,10 +48,12 @@ export class RainEmojiComponent implements AfterViewInit, OnDestroy {
         || window.setTimeout(callback, 1000 / 60);
     };
 
+
     const _loop = () => {
       const v = document.createElement("div");
       v.classList.add("emoji-fall-effect");
-      v.textContent = RainEmojiComponent.EMOJIS[Math.floor(Math.random() * RainEmojiComponent.EMOJIS.length)];
+      const i = this.router.url === "/error" ? 0 : 1;
+      v.textContent = RainEmojiComponent.EMOJIS[i][Math.floor(Math.random() * RainEmojiComponent.EMOJIS[i].length)];
       v.style.setProperty("--emoji-size", `${Math.floor(Math.random() * (30 - 10 + 1)) + 10}px`);
       const p = Math.floor(Math.random() * 101);
       v.style.setProperty("--emoji-pos-l", `${p}%`);

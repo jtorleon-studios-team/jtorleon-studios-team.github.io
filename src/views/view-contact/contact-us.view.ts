@@ -1,17 +1,16 @@
-import { BaseComponent } from "../base.component";
+import { BaseComponent } from "../component.base";
 import { CommonModule } from "@angular/common";
 import { Component, OnDestroy, OnInit, } from "@angular/core";
 import { Meta, Title } from "@angular/platform-browser";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, RouterLink } from "@angular/router";
 import { Subscription } from "rxjs";
-import { HeaderComponent } from "../components/header.component";
 
 @Component({
   selector: "app-contacts-us",
   standalone: true,
-  templateUrl: "./contact-us.component.html",
-  styleUrl: "./contact-us.component.scss",
-  imports: [CommonModule, HeaderComponent]
+  templateUrl: "./contact-us.view.html",
+  styleUrl: "./contact-us.view.scss",
+  imports: [CommonModule, RouterLink]
 })
 export class ContactsUsComponent extends BaseComponent implements OnInit, OnDestroy {
 

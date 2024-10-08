@@ -11,7 +11,7 @@ const { readdirSync, readFileSync, writeFileSync } = require("node:fs");
  * 4) use the constant and apply your logic (guard, router, boostrap, ....)
  */
 const cfg = {
-  folderPathToAngularIndex: "dist",   // path to angular dist; ex "./root_project/dist"
+  folderPathToAngularIndex: "dist/browser",   // path to angular dist; ex "./root_project/dist"
   regexIndex: "index.*\\.html",       // regex to find index.html in folder $folderPathToAngularIndex
   fileOption: { encoding: "utf-8" },  // nodejs file option
 }

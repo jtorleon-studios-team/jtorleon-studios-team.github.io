@@ -1,21 +1,20 @@
-import { BaseComponent } from "../base.component";
+import { BaseComponent } from "../component.base";
 import { CommonModule } from "@angular/common";
 import { Component, OnDestroy, OnInit, } from "@angular/core";
 import { Meta, Title } from "@angular/platform-browser";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, RouterLink } from "@angular/router";
 import { Subscription } from "rxjs";
-import { HeaderComponent } from "../components/header.component";
 
-declare let PRIVACY: [number, string][];
 
 @Component({
   selector: "app-privacy-policy",
   standalone: true,
-  templateUrl: "./privacy-policy.component.html",
-  styleUrl: "./privacy-policy.component.scss",
-  imports: [CommonModule, HeaderComponent]
+  templateUrl: "./privacy-policy.view.html",
+  styleUrl: "./privacy-policy.view.scss",
+  imports: [CommonModule, RouterLink]
 })
 export class PrivacyPolicyComponent extends BaseComponent implements OnInit, OnDestroy {
+  private readonly _privacyText: [number, string][];
 
   public constructor(
     private readonly _route: ActivatedRoute,
@@ -23,6 +22,7 @@ export class PrivacyPolicyComponent extends BaseComponent implements OnInit, OnD
     private readonly _meta: Meta
   ) {
     super(_title, _meta, "privacy-policy", "privacy-policy");
+    this._privacyText = [[0, "PRIVACY"]]
   }
 
   public override attachSubscriptions(): Subscription[] {
@@ -39,7 +39,7 @@ export class PrivacyPolicyComponent extends BaseComponent implements OnInit, OnD
 
 
   public get privacyText(): [number, string][] {
-    return PRIVACY;
+    return this._privacyText;
   }
 
 }

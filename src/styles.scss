@@ -1,16 +1,4 @@
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
-html {
-  line-height: 1.15;
-  -webkit-text-size-adjust: 100%;
-}
-
-body {
-  margin: 0;
-}
-
-main {
-  display: block;
-}
 
 h1 {
   font-size: 2em;
@@ -28,9 +16,6 @@ pre {
   font-size: 1em;
 }
 
-a {
-  background-color: transparent;
-}
 
 abbr[title] {
   border-bottom: none;
@@ -71,6 +56,7 @@ sup {
 }
 
 img {
+  border-radius: var(--radius);
   border-style: none;
 }
 
@@ -185,10 +171,14 @@ template {
   --them-main-background: 44, 44, 44;
   --angular-dominant-color: 30, 143, 255;
   --height-footer: 50px;
+  --radius: 6px;
+  --font-size: 14px;
 }
 
 html {
   scroll-behavior: smooth;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
 }
 
 * {
@@ -229,54 +219,53 @@ body {
   }
 }
 
-[data-use-webkit-scrollbar="true"] {
-  ::-webkit-scrollbar {
-    width: 10px;
-  }
+::-webkit-scrollbar {
+  width: 10px;
+}
 
-  ::-webkit-scrollbar-track {
-    background-color: rgba(0, 0, 0, 0);
-  }
+::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0);
+}
 
-  ::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(10px);
-    border-radius: 4px;
-  }
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 4px;
+}
 
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(255, 255, 255, 0.9);
-  }
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 a {
+  background-color: transparent;
   color: #ffffff;
   text-decoration: none;
 }
 
 // --------------------------------------------------------------
 
-.backgroundGlass {
+.glass {
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: var(--radius);
   z-index: 5;
 }
 
-.bgError {
+.error {
   background: #ff00002e !important;
   border-color: red !important;
 }
 
-.bgWarning {
+.warning {
   background: #ffa5002e !important;
   border-color: orange !important;
 }
 
-.bgSafe {
+.safe {
   background: #9acd322e !important;
   border-color: yellowgreen !important;
 }
@@ -382,5 +371,65 @@ a {
   100% {
     top: calc(100% - calc(var(--emoji-size) * 2));
     opacity: 0;
+  }
+}
+
+// --------------------------------------------------------------
+
+main {
+  --paddingLeftRight: 10px display: block;
+  height: 100%;
+  max-height: 100%;
+  overflow: auto;
+  z-index: 1;
+  position: relative;
+  font-size: var(--font-size);
+  padding: 0 var(--paddingLeftRight) var(--height-footer) var(--paddingLeftRight);
+}
+
+@media only screen and (max-width: 375px) {
+  main {
+    --paddingLeftRight: 10px;
+    --font-size: 14px;
+  }
+}
+
+@media only screen and (min-width: 375px) {
+  main {
+    --paddingLeftRight: 15px;
+    --font-size: 15px;
+  }
+}
+
+@media only screen and (min-width: 425px) {
+  main {
+    --paddingLeftRight: 20px;
+    --font-size: 16px;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  main {
+    --paddingLeftRight: 50px;
+    --font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  main {
+    --paddingLeftRight: 100px;
+    --font-size: 20px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  main {
+    --paddingLeftRight: 150px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  main {
+    --paddingLeftRight: 200px;
   }
 }

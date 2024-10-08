@@ -2,10 +2,10 @@ import { Subscription } from "rxjs";
 import { CommonModule } from "@angular/common";
 import { RouterLink, RouterOutlet } from "@angular/router";
 
-import { BaseComponent } from "../views/base.component";
-import { HeaderComponent } from "../views/components/header.component";
-import { FooterComponent } from "../views/components/footer.component";
-import { RainEmojiComponent } from "../views/components/rain-emoji.component";
+import { BaseComponent } from "./component.base";
+import { HeaderComponent } from "./components/header.component";
+import { FooterComponent } from "./components/footer.component";
+import { RainEmojiComponent } from "./components/rain-emoji.component";
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Title, Meta } from "@angular/platform-browser";
 
@@ -29,7 +29,10 @@ import { Title, Meta } from "@angular/platform-browser";
       </strong>
     </noscript>
     <app-rain-emoji />
-    <router-outlet />
+    <main>
+      <app-header-component />
+      <router-outlet />
+    </main>
     <app-footer-component />
   `,
 })
