@@ -32,8 +32,11 @@ jobs:
         run: |
           rm -rf node_modules package-lock.json
 
-      - name: Install dependencies using npm ci
-        run: npm ci
+      - name: Install rollup
+        run: npm install rollup
+
+      - name: Install dependencies using npm ci with legacy-peer-deps
+        run: npm ci --legacy-peer-deps
 
       - name: Install dependencies
         run: npm install
