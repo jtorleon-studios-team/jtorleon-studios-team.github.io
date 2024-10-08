@@ -16,7 +16,7 @@
       "node_modules/": true,
       ".angular/": true,
       "package-lock.json": true,
-      ".gitignore": true,
+      ".gitignore": false,
       ".gitattributes": true
     },
     "liveServer.settings.multiRootWorkspaceName": ".",
