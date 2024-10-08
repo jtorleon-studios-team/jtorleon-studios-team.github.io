@@ -1,0 +1,30 @@
+name: test
+run-name: ${{ github.actor }} - test 
+on:  
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write 
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+       
+      - name: Remove node_modules and package-lock.json
+        run: |
+          queryGraphQL='query ($owner: String!, $repo: String!) { repository(owner: $owner, name: $repo) { discussionCategories(first: 10) { nodes { id name } } } }'
+          queryVariable='"owner": "jtorleon-studios-team", "repo": ".github"'
+          apiResponse=$(curl -X POST -H "Content-Type: application/vnd.github+json" -H "Authorization: token ${{ secrets.PAT }}" \
+            -d "{ \"query\": \"$queryGraphQL\", \"variables\": { $queryVariable } }" https://api.github.com/graphql)
+          echo $apiResponse
+
