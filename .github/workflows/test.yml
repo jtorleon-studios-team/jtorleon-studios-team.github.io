@@ -30,6 +30,7 @@ jobs:
   job2:
     needs: setup
     runs-on: ubuntu-latest
-    steps:
+    steps: 
       - run: |
-          echo "${{fromJson(needs.setup.outputs.response)}}"
+          echo "${{ fromJson(needs.setup.outputs.response).data.repository.discussionCategories.nodes[0].id }}"
+          echo "${{ fromJson(needs.setup.outputs.response).data.repository.discussionCategories.nodes[0].name }}"
