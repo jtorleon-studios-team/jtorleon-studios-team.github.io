@@ -21,16 +21,31 @@ jobs:
         
       - id: get-json 
         run: |
-          queryGraphQL='query ($owner: String!, $repo: String!) { repository(owner: $owner, name: $repo) { discussionCategories(first: 10) { nodes { id name } } } }'
+          # Query GraphQL 
+          queryGraphQL='query ($owner: String!, $repo: String!) { 
+            repository(owner: $owner, name: $repo) { 
+              discussionCategories(first: 10) { 
+                nodes { 
+                  id 
+                  name 
+                }
+              } 
+            }
+          }'
+          
+          # Query Variables
           queryVariable='"owner": "jtorleon-studios-team", "repo": ".github"'
+          
+          # CURL request
           apiResponse=$(curl -X POST -H "Content-Type: application/vnd.github+json" -H "Authorization: token ${{ secrets.PAT }}" \
             -d "{ \"query\": \"$queryGraphQL\", \"variables\": { $queryVariable } }" https://api.github.com/graphql)
-          echo $apiResponse
+
+          # set output
           echo "response=$apiResponse" >> $GITHUB_OUTPUT
-  job2:
+  parse-json:
     needs: setup
     runs-on: ubuntu-latest
     steps: 
-      - run: |
-          echo "${{ fromJson(needs.setup.outputs.response).data.repository.discussionCategories.nodes[0].id }}"
-          echo "${{ fromJson(needs.setup.outputs.response).data.repository.discussionCategories.nodes[0].name }}"
+      - run: |   
+          categoryId=$(echo "${{ fromJson(needs.setup.outputs.response) }}" | jq -r '.data.repository.discussionCategories.nodes[] | select(.name == "General") | .id')
+          echo "ID of General category: $categoryId"
