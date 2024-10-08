@@ -29,6 +29,6 @@ jobs:
           echo $apiResponse
           echo "::set-output name=apiResponse::$apiResponse"
       - run: |
-          echo "${{fromJson(steps.set_var.outputs.apiResponse).data}}"
+          echo "${{fromJson(steps.set_var.outputs.apiResponse).data.repository.discussionCategories[0]}}"
 
 
