@@ -26,9 +26,7 @@ jobs:
           apiResponse=$(curl -X POST -H "Content-Type: application/vnd.github+json" -H "Authorization: token ${{ secrets.PAT }}" \
             -d "{ \"query\": \"$queryGraphQL\", \"variables\": { $queryVariable } }" https://api.github.com/graphql)
           echo $apiResponse
-          echo "response<<EOF" >> $GITHUB_OUTPUT
-          cat $apiResponse >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
+          echo "response=$apiResponse" >> $GITHUB_OUTPUT
   job2:
     needs: setup
     runs-on: ubuntu-latest
