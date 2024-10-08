@@ -1,3 +1,4 @@
+import { HttpClient } from "@angular/common/http";
 import { BaseComponent } from "../component.base";
 import { CommonModule } from "@angular/common";
 import { Component, OnDestroy, OnInit, } from "@angular/core";
@@ -19,14 +20,23 @@ export class PrivacyPolicyComponent extends BaseComponent implements OnInit, OnD
   public constructor(
     private readonly _route: ActivatedRoute,
     private readonly _title: Title,
-    private readonly _meta: Meta
+    private readonly _meta: Meta,
+    private readonly _httpClient: HttpClient,
   ) {
     super(_title, _meta, "privacy-policy", "privacy-policy");
     this._privacyText = [[0, "PRIVACY"]]
   }
 
   public override attachSubscriptions(): Subscription[] {
-    return [];
+    return [
+      this._httpClient.get("privacy-policy.txt", {
+        responseType: "text"
+      })
+        .pipe()
+        .subscribe(r => {
+          console.log(r)
+        })
+    ];
   }
 
   public ngOnInit(): void {

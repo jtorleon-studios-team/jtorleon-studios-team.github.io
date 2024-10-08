@@ -15,8 +15,8 @@
     "files.exclude": {
       "node_modules/": true,
       ".angular/": true,
-      "package-lock.json": false,
-      ".gitignore": false,
+      "package-lock.json": true,
+      ".gitignore": true,
       ".gitattributes": true
     },
     "liveServer.settings.multiRootWorkspaceName": ".",
