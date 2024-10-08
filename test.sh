@@ -18,3 +18,5 @@ apiResponse=$(curl -X POST -H "Content-Type: application/vnd.github+json" -H "Au
   -d "{ \"query\": \"$queryGraphQL\", \"variables\": { $queryVariable } }" https://api.github.com/graphql)
 # pass result to node for parse response
 node -e "let response = JSON.parse('$apiResponse');$scriptNodeJS"
+
+# echo "response=$apiResponse" >> $GITHUB_OUTPUT

@@ -25,12 +25,15 @@ jobs:
           queryVariable='"owner": "jtorleon-studios-team", "repo": ".github"'
           apiResponse=$(curl -X POST -H "Content-Type: application/vnd.github+json" -H "Authorization: token ${{ secrets.PAT }}" \
             -d "{ \"query\": \"$queryGraphQL\", \"variables\": { $queryVariable } }" https://api.github.com/graphql)
-          echo $apiResponse
-          echo "response=$apiResponse" >> $GITHUB_OUTPUT
-  job2:
-    needs: setup
-    runs-on: ubuntu-latest
-    steps: 
-      - run: |
-          categoryId=$(echo "${{ fromJson(needs.setup.outputs.response) }}" | jq -r '.data.repository.discussionCategories.nodes[] | select(.name == "General") | .id')
-          echo "ID of General category: $categoryId"
+          scriptNodeJS='
+            let categoryToFind = "Announcements";
+            let discussionCategories = response.data.repository.discussionCategories;
+            let find = discussionCategories.nodes.filter(v => v.name === categoryToFind);
+            if (find) {
+              console.log("success", find); 
+            } else {
+              throw new Error("not found discussionCategories", categoryToFind); 
+            }
+          '
+          node -e "let response = JSON.parse('$apiResponse');$scriptNodeJS"
+ 
