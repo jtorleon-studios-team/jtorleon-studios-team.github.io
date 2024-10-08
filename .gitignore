@@ -5,10 +5,11 @@
 *.env.test.local
 *.env.production.local
  
+package-lock.json
+
 # Angular
 /dist/
 /node_modules/
-/package-lock.json
 /.angular
 /.cache
 /coverage/

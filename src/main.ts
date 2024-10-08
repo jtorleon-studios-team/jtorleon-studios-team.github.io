@@ -22,5 +22,4 @@ bootstrapApplication(
       provideHttpClient(withFetch()),
       { provide: LOCALE_ID, useValue: "en-US" }
     ]
-  })
-  .catch(e => console.error(e));
+  }).catch(e => console.error(e));
