@@ -2,14 +2,6 @@ name: test
 run-name: ${{ github.actor }} - test 
 on:  
   workflow_dispatch:
-permissions:
-  contents: read
-  pages: write
-  id-token: write 
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 jobs:
   setup: 
     runs-on: ubuntu-latest
@@ -23,7 +15,7 @@ jobs:
           queryGraphQL='query ($owner: String!, $repo: String!) { repository(owner: $owner, name: $repo) { discussionCategories(first: 10) { nodes { id name } } } }'
 
           queryVariable='"owner": "jtorleon-studios-team", "repo": ".github"'
-          
+
           scriptNodeJS='
             let categoryToFind = "Announcements";
             let discussionCategories = response.data.repository.discussionCategories;
