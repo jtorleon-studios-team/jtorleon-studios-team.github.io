@@ -6,7 +6,7 @@ import { provideHttpClient } from "@angular/common/http";
 import { withHashLocation } from "@angular/router";
 import { withFetch } from "@angular/common/http";
 import { provideRouter } from "@angular/router";
-import { LOCALE_ID, provideExperimentalZonelessChangeDetection, provideZoneChangeDetection } from "@angular/core";
+import { LOCALE_ID } from "@angular/core";
 
 import { MainComponent } from "./views/main.component";
 import { ROUTES } from "./routes/routes";
@@ -15,9 +15,6 @@ bootstrapApplication(
   MainComponent,
   {
     providers: [
-      provideExperimentalZonelessChangeDetection(),
-      provideZoneChangeDetection({ eventCoalescing: true }),
-
       provideRouter(ROUTES,
         withHashLocation(),
         withComponentInputBinding()
