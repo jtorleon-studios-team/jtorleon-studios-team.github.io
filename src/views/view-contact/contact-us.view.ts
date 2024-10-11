@@ -13,7 +13,7 @@ import { Subscription } from "rxjs";
   imports: [CommonModule, RouterLink]
 })
 export class ContactsUsComponent extends BaseComponent implements OnInit, OnDestroy {
-  // TODO need to implement contact view
+  /* TODO need to implement contact view */
   public constructor(
     private readonly _route: ActivatedRoute,
     private readonly _title: Title,
