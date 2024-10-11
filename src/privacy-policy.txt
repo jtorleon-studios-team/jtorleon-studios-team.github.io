@@ -40,12 +40,12 @@ We may update our Privacy Policy from time to time. Any changes
 will be communicated to you. Please review this policy 
 periodically for any updates. You can also follow the repo 
 to get notified when this website is updated:
-- https://github.com/jtorleon-studios-team/.github
+- https://github.com/jtorleon-studios-team/jtorleon-studios-team.github.io
 
 ## Contact Us
 
 If you have any questions or concerns about this Privacy Policy, 
 open an issue on github:
-- https://github.com/jtorleon-studios-team/.github/issues
+- https://github.com/jtorleon-studios-team/jtorleon-studios-team.github.io/issues
 
 JtorLeon Studios - 2024

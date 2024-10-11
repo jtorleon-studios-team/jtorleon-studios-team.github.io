@@ -23,7 +23,12 @@ export class PrivacyPolicyComponent extends BaseComponent implements OnInit, OnD
     private readonly _meta: Meta,
     private readonly _httpClient: HttpClient,
   ) {
-    super(_title, _meta, "privacy-policy", "privacy-policy");
+    super(_title, _meta,
+      "JTorLeon Studios Privacy Policy",
+      "Learn how we collect, use, and protect your personal " +
+      "information in compliance with data privacy laws. Our" +
+      " Privacy Policy ensures transparency and security for all users"
+    );
     this._privacyText = [[0, "PRIVACY"]]
   }
 
@@ -31,41 +36,37 @@ export class PrivacyPolicyComponent extends BaseComponent implements OnInit, OnD
     return [
       this._httpClient.get("privacy-policy.txt", {
         responseType: "text"
-      })
-        .pipe()
-        .pipe(map(text => {
-          const data: [number, string][] = [];
-          const lines = text.split("\n");
-          let currentParagraph: string = "";
-
-          for (const line of lines) {
-            const lineTrim = line.trim();
-            console.log(line)
-            // if title
-            if (lineTrim.startsWith("#")) {
-              // close paragraph
-              if (currentParagraph.length > 0) {
-                data.push([0, currentParagraph])
-                currentParagraph = "";
-              }
-
-              const titleLevel = line.match(/^#+/)?.[0].length || 0; // Trouver le nombre de '#'
-              if (titleLevel > 0 && titleLevel <= 6) {
-                data.push([titleLevel, line.slice(titleLevel).trim()]); // Ajouter le titre
-              }
+      }).pipe(map(text => {
+        const data: [number, string][] = [];
+        const lines = text.split("\n");
+        let currentParagraph: string = "";
+        for (const line of lines) {
+          const lineTrim = line.trim();
+          // if title:
+          if (lineTrim.startsWith("#")) {
+            // close current paragraph
+            if (currentParagraph.length > 0) {
+              data.push([0, currentParagraph])
+              currentParagraph = "";
             }
 
-            else {
-              currentParagraph += line;
+            const titleLevel = line.match(/^#+/)?.[0].length || 0;
+            if (titleLevel > 0 && titleLevel <= 6) {
+              data.push([titleLevel, line.slice(titleLevel).trim()]);
             }
           }
-
-          if (currentParagraph.length > 0) {
-            data.push([0, currentParagraph])
+          // else other:
+          else {
+            currentParagraph += line;
           }
+        }
 
-          return data
-        }))
+        if (currentParagraph.length > 0) {
+          data.push([0, currentParagraph])
+        }
+
+        return data
+      }))
         .subscribe(r => { this._privacyText = r; }),
     ];
   }

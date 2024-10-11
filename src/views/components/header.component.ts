@@ -13,9 +13,9 @@ import { SvgUseComponent } from "./svg-use.component";
   ],
   template: `
     <header>
-      <h1 class="title">
-        <a routerLink="/">JTorLeon Studios</a>
-      </h1>  
+      <a routerLink="/" class="glass">
+        <img src="assets/img/android-chrome-192x192.png" alt="Logo of JTorLeon Studios"  />
+      </a>
     </header>
   `,
   styles: `
@@ -25,6 +25,21 @@ import { SvgUseComponent } from "./svg-use.component";
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      padding:12.5px 0;
+
+      a { padding: 8px }
+      img { display:flex }
+      a, img { border-radius: 100% }
+
+      a:hover {
+        background-color: rgba(255, 255, 255, 0.4);
+        img { animation: rotate .5s ease-in-out }
+      }
+
+      @keyframes rotate {
+        from { transform: rotate(0deg) }
+        to { transform: rotate(360deg) }
+      }
     }
   `,
 })

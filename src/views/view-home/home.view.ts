@@ -20,7 +20,7 @@ export class HomeComponent extends BaseComponent implements OnInit, OnDestroy {
     private readonly _title: Title,
     private readonly _meta: Meta
   ) {
-    super(_title, _meta, "home", "home");
+    super(_title, _meta, "JTorLeon Studios - HUB", "Explore a wide range of projects, content, and services on platforms like Patreon, GitHub, Curseforge, Modrinth, and Fiverr. From discovering code and downloading mods to accessing professional services, everything you need is available in one place.");
   }
 
   public override attachSubscriptions(): Subscription[] {
