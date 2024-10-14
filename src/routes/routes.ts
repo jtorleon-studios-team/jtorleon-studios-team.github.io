@@ -4,7 +4,6 @@ import { HomeComponent } from "../views/view-home/home.view";
 import { Error404RedirectGuard } from "./guards/error-404.guard";
 import { PrivacyPolicyComponent } from "../views/view-privacy/privacy-policy.view";
 import { ContactsUsComponent } from "../views/view-contact/contact-us.view";
-import { DiscordRedirectGuard } from "./guards/discord-redirect.guard";
 
 export const ROUTES: Route[] = [
   // |"/"| & |"/index.html"| -> HomeComponent
@@ -23,11 +22,6 @@ export const ROUTES: Route[] = [
   {
     component: ContactsUsComponent,
     path: "contact-us"
-  },
-
-  {
-    path: "discord",
-    canActivate: [DiscordRedirectGuard]
   },
 
   // other -> error

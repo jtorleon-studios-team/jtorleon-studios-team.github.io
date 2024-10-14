@@ -37,7 +37,8 @@
               "src/assets",
               "src/robot.txt",
               "src/privacy-policy.txt",
-              "src/terms-of-service.txt"
+              "src/terms-of-service.txt",
+              "src/discord.html"
             ],
             "styles": [
               "src/styles.scss"
@@ -100,7 +101,9 @@
             "assets": [
               "src/assets",
               "src/robot.txt",
-              "src/privacy-policy.txt"
+              "src/privacy-policy.txt",
+              "src/terms-of-service.txt",
+              "src/discord.html"
             ],
             "styles": [
               "src/styles.scss"
