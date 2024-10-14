@@ -36,7 +36,8 @@
             "assets": [
               "src/assets",
               "src/robot.txt",
-              "src/privacy-policy.txt"
+              "src/privacy-policy.txt",
+              "src/terms-of-service.txt"
             ],
             "styles": [
               "src/styles.scss"
