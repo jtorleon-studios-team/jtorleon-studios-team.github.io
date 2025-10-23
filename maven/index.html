@@ -208,10 +208,11 @@
   </section>
   <script>
     ; (() => {
+      const github_url = "https://github.com/jtorleon-studios-team/";
       const resources = [
         {
           url: "com/github/tmslpm/gradle-include-properties/1.0.0/gradle-include-properties-1.0.0.jar",
-          id: "gradle-minify-json-resources",
+          id: "gradle-include-properties",
           version: "1.0.0"
         },
         {
@@ -293,9 +294,9 @@
         const item = document.createElement("span");
         item.textContent = resource.id + " ";
 
-        /* [show] */
+        /* [help] */
         const directShow = document.createElement("a");
-        directShow.textContent = `[show] `;
+        directShow.textContent = `[help] `;
         directShow.href = "javascript:void(0)";
         directShow.onclick = () => {
           document.querySelectorAll(".itemDiv").forEach(v => v.style.display = "none");
@@ -303,9 +304,16 @@
         };
         item.appendChild(directShow);
 
+        /* [github] */
+        const directRepos = document.createElement("a");
+        directRepos.textContent = `[github] `;
+        directRepos.href = github_url + resource.id;
+        directRepos.target = "_blank";
+        item.appendChild(directRepos);
+
         /* [download] */
         const directDownload = document.createElement("a");
-        directDownload.textContent = `[download]`;
+        directDownload.textContent = `[download] `;
         directDownload.href = resource.url;
         directDownload.target = "_blank";
         item.appendChild(directDownload);
