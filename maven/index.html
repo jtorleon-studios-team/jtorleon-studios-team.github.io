@@ -1,16 +1,127 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
+
 <head>
-  <meta charset='utf-8'>
-  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-  <title>Maven Room</title>
-  <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-  <script src='main.js'></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maven - Jtorleon Studios</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body,
+    html {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: flex-start;    
+      flex-direction: column;
+      gap: 30px;
+      padding: 15px;
+      overflow: hidden;
+      color: #ddd;
+      background: linear-gradient(-45deg,
+          #ee7752,
+          #e73c7e,
+          #a935ec,
+          #6340fc);
+      background-size: 400% 400%;
+      animation: gradient 20s ease infinite;
+      font-family: sans-serif;
+    }
+
+    @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    a {
+      color: rgb(255, 255, 255); 
+      letter-spacing: .031rem;
+      text-decoration: none;
+      transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+    }
+
+    a:hover {
+      color: rgb(0, 0, 0);
+    }
+
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: rgba(0, 0, 0, 0);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(10px);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 14px;
+      z-index: 5;
+    }
+
+    ul {
+      list-style: none; 
+    }
+
+    section {
+      height: auto;
+      width:100%;
+      padding: 12px;
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Maven Root</h1>
-  <a href="./maven/com/github/tmslpm/gradle-include-properties/1.0.0/gradle-include-properties-1.0.0.jar">gradle-include-properties</a>
-  <a href="./maven/com/github/tmslpm/gradle-minify-json-resources/1.0.0/gradle-minify-json-resources-1.0.0.jar">gradle-minify-json-resources</a>
+  <section class="glass">
+    <h1>
+      <a href="https://github.com/jtorleon-studios-team/" title="Go to github" target="_blank">
+        Maven Jtorleon Studios Team
+      </a>
+    </h1>
+  </section>
+  <section class="glass">
+    <h2>📁 Root</h2>
+    <ul style="padding-left:14px">
+      <li>|- 
+        <a
+          title="Download jar"
+          href="./maven/com/github/tmslpm/gradle-include-properties/1.0.0/gradle-include-properties-1.0.0.jar">gradle-include-properties  </a>
+      </li>
+      <li>|- 
+        <a
+          title="Download jar"
+          href="./maven/com/github/tmslpm/gradle-minify-json-resources/1.0.0/gradle-minify-json-resources-1.0.0.jar">gradle-minify-json-resources</a>
+      </li>
+    </ul>
+  </section>
 </body>
+
 </html>
