@@ -314,7 +314,7 @@
         /* [download] */
         const directDownload = document.createElement("a");
         directDownload.textContent = `[download] `;
-        directDownload.href = resource.url;
+        directDownload.href = `/maven/${resource.url}`;
         directDownload.target = "_blank";
         item.appendChild(directDownload);
 
