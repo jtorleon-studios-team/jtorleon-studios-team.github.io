@@ -1,6 +1,9 @@
 import { Component } from "@angular/core";
+import { MatDialog } from "@angular/material/dialog";
 import { RouterLink } from "@angular/router";
-
+import { ContactDialogComponent } from "views/dialogs/contact/contact.dialog.component";
+import { PrivacyDialogComponent } from "views/dialogs/privacy/privacy.dialog.component";
+ 
 @Component({
   standalone: true,
   selector: "app-footer-component",
@@ -8,9 +11,11 @@ import { RouterLink } from "@angular/router";
   template: `
     <footer>
       <p>
-        <a routerLink="contact-us"
+        <a 
+          (click)="this.openContactDialog()"
           title="visit contact us!">contact us</a> -
-        <a routerLink="privacy-policy"
+        <a 
+          (click)="this.openPrivacyDialog()"
           title="see our privacy policy" 
           download="privacy-policy.txt">privacy policy</a>
       </p>
@@ -31,4 +36,11 @@ import { RouterLink } from "@angular/router";
     }
   `,
 })
-export class FooterComponent { }
+export class FooterComponent {
+
+  public constructor(
+    private readonly dialog: MatDialog,
+  ) { }
+  public openContactDialog() { this.dialog.open(ContactDialogComponent) }
+  public openPrivacyDialog() { this.dialog.open(PrivacyDialogComponent) }
+}

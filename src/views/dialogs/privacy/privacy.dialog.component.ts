@@ -1,24 +1,21 @@
 import { HttpClient } from "@angular/common/http";
-import { BaseComponent } from "../component.base";
-import { CommonModule } from "@angular/common";
-import { Component, OnDestroy, OnInit, } from "@angular/core";
+import { Component, ChangeDetectionStrategy, OnInit, OnDestroy } from "@angular/core";
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 import { Meta, Title } from "@angular/platform-browser";
-import { ActivatedRoute, RouterLink } from "@angular/router";
 import { map, Subscription } from "rxjs";
-
-
+import { BaseComponent } from "views/component.base";
+ 
 @Component({
-  selector: "app-privacy-policy",
+  selector: 'app-privacy-dialog-component',
+  templateUrl: 'privacy.dialog.component.html',
   standalone: true,
-  templateUrl: "./privacy-policy.view.html",
-  styleUrl: "./privacy-policy.view.scss",
-  imports: [CommonModule, RouterLink]
+  imports: [MatDialogModule, MatButtonModule]
 })
-export class PrivacyPolicyComponent extends BaseComponent implements OnInit, OnDestroy {
+export class PrivacyDialogComponent extends BaseComponent implements OnInit, OnDestroy {
   private _privacyText: [number, string][];
 
   public constructor(
-    private readonly _route: ActivatedRoute,
     private readonly _title: Title,
     private readonly _meta: Meta,
     private readonly _httpClient: HttpClient,
@@ -29,7 +26,7 @@ export class PrivacyPolicyComponent extends BaseComponent implements OnInit, OnD
       "information in compliance with data privacy laws. Our" +
       " Privacy Policy ensures transparency and security for all users"
     );
-    this._privacyText = [[0, "PRIVACY"]]
+    this._privacyText = [[0, "PRIVACY"]];
   }
 
   public override attachSubscriptions(): Subscription[] {
@@ -72,16 +69,13 @@ export class PrivacyPolicyComponent extends BaseComponent implements OnInit, OnD
   }
 
   public ngOnInit(): void {
-    super.onInit();
+    super.onInit(); 
   }
 
   public ngOnDestroy(): void {
     super.onDestroy();
   }
 
-
-  public get privacyText(): [number, string][] {
-    return this._privacyText;
-  }
-
+  public get privacyText() { return this._privacyText }
 }
+

@@ -10,6 +10,7 @@ import { LOCALE_ID } from "@angular/core";
 
 import { MainComponent } from "./views/main.component";
 import { ROUTES } from "./routes/routes";
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 bootstrapApplication(
   MainComponent,
@@ -20,6 +21,6 @@ bootstrapApplication(
         withComponentInputBinding()
       ),
       provideHttpClient(withFetch()),
-      { provide: LOCALE_ID, useValue: "en-US" }
+      { provide: LOCALE_ID, useValue: "en-US" }, provideAnimationsAsync()
     ]
   }).catch(e => console.error(e));
