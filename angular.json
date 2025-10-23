@@ -35,7 +35,6 @@
             ],
             "assets": [
               "src/assets",
-              "src/maven",
               "src/robot.txt",
               "src/privacy-policy.txt",
               "src/terms-of-service.txt",
@@ -102,7 +101,6 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/assets",
-              "src/maven",
               "src/robot.txt",
               "src/privacy-policy.txt",
               "src/terms-of-service.txt",
