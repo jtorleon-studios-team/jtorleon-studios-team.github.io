@@ -40,10 +40,10 @@
     content="https://jtorleon-studios-team-github-io.pages.dev/android-chrome-512x512.png" />
 
   <meta property="og:image:width"
-    content="180" />
+    content="512" />
 
   <meta property="og:image:height"
-    content="180" />
+    content="512" />
 
   <meta property="og:description"
     content="Public Maven repository hosted by JTorleon Studios Team. Access open-source Gradle and Java libraries, plugins, and development tools for your projects. Fast, reliable, and fully compatible with standard Maven and Gradle configurations." />
@@ -190,18 +190,7 @@
   </section>
   <section class="glass">
     <h2>📁 Root</h2>
-    <ul id="list" style="padding-left:14px">
-      <li>|-
-        <a
-          title="Download jar"
-          href="./maven/com/github/tmslpm/gradle-include-properties/1.0.0/gradle-include-properties-1.0.0.jar">gradle-include-properties
-        </a>
-      </li>
-      <li>|-
-        <a
-          title="Download jar"
-          href="./maven/com/github/tmslpm/gradle-minify-json-resources/1.0.0/gradle-minify-json-resources-1.0.0.jar">gradle-minify-json-resources</a>
-      </li>
+    <ul id="list" style="padding-left:14px"> 
     </ul>
   </section>
   <script> 
@@ -223,8 +212,12 @@
         li.textContent = "|- ";
         
         const link = document.createElement("a");
-        
+        link.textContent = resource.name;
+        link.href = resource.url;
+        link.target = "_blank";
 
+        li.appendChild(link);
+        list.appendChild(li);
       }
     })();
   </script>
