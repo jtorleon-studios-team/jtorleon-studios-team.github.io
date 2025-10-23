@@ -150,6 +150,19 @@
       width: 100%;
       padding: 12px;
     }
+
+    .itemDiv {
+      display: flex;
+      margin: 5px 0 5px 15px;
+    }
+
+    pre {
+      background: rgba(44, 44, 44, 0.2);
+      color: rgba(255, 255, 255, .8);
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 14px;
+    }
   </style>
 </head>
 
@@ -190,33 +203,115 @@
   </section>
   <section class="glass">
     <h2>📁 Root</h2>
-    <ul id="list" style="padding-left:14px"> 
+    <ul id="list" style="padding-left:14px">
     </ul>
   </section>
-  <script> 
+  <script>
     ; (() => {
       const resources = [
         {
           url: "com/github/tmslpm/gradle-include-properties/1.0.0/gradle-include-properties-1.0.0.jar",
-          name: "gradle-minify-json-resources"
+          id: "gradle-minify-json-resources",
+          version: "1.0.0"
         },
         {
           url: "com/github/tmslpm/gradle-minify-json-resources/1.0.0/gradle-minify-json-resources-1.0.0.jar",
-          name: "gradle-minify-json-resources"
+          id: "gradle-minify-json-resources",
+          version: "1.0.0"
         },
       ];
 
-      const list = document.getElementById("list");
-      for (const resource of resources) {
-        const li = document.createElement("li");
-        li.textContent = "|- ";
-        
-        const link = document.createElement("a");
-        link.textContent = resource.name;
-        link.href = resource.url;
-        link.target = "_blank";
+      function createExample(label, lines, schematic = "") {
+        const container = document.createElement("div");
 
-        li.appendChild(link);
+        const textSettings = document.createElement("p");
+        textSettings.style.margin = "8px 0 3px 5px";
+        textSettings.textContent = label;
+        container.appendChild(textSettings);
+
+        const example = document.createElement("pre");
+        example.style.position = "relative";
+
+        const code = document.createElement("code");
+        code.textContent = lines.join("\n");
+        example.appendChild(code);
+
+        if (schematic.length > 0) {
+          const copy = document.createElement("a");
+          copy.textContent = "[copy]";
+          copy.href = "javascript:void(0)";
+          copy.style.cursor = "pointer";
+          copy.style.position = "absolute";
+          copy.style.right = "15px";
+          copy.style.top = "10px";
+          example.appendChild(copy);
+          copy.onclick = () => navigator.clipboard
+            .writeText(schematic)
+            .catch(err => alert("Unable to copy text to clipboard. Your browser may not support this feature."));
+        }
+
+        container.appendChild(example);
+        return container;
+      }
+
+      const list = document.getElementById("list");
+      for (let i = 0; i < resources.length; i++) {
+        const resource = resources[i];
+
+        const li = document.createElement("li");
+        li.textContent = i === resources.length - 1 ? "└─ " : "├─ ";
+
+        const div = document.createElement("div");
+        div.className = "itemDiv";
+        div.style.display = "none";
+
+        div.appendChild(createExample(
+          " 1) Add the public Maven repository in your settings.gradle:",
+          [
+            "pluginManagement {",
+            "  repositories {",
+            "    maven {",
+            `      url = '${window.location.host}'`,
+            "    }",
+            "  }",
+            "}"
+          ],
+          `maven { url = '${window.location.host}' }`
+        ));
+
+        div.appendChild(createExample(
+          " 2) Then apply the plugin in your build.gradle:",
+          [
+            "plugin {",
+            `  id '${resource.id}' version '${resource.version}'`,
+            "}"
+          ],
+          `id '${resource.id}' version '${resource.version}'`
+        ));
+
+        /* item name [show] [download] */
+        const item = document.createElement("span");
+        item.textContent = resource.id + " ";
+
+        /* [show] */
+        const directShow = document.createElement("a");
+        directShow.textContent = `[show] `;
+        directShow.href = "javascript:void(0)";
+        directShow.onclick = () => {
+          document.querySelectorAll(".itemDiv").forEach(v => v.style.display = "none");
+          div.style.display = div.style.display === "block" ? "none" : "block";
+        };
+        item.appendChild(directShow);
+
+        /* [download] */
+        const directDownload = document.createElement("a");
+        directDownload.textContent = `[download]`;
+        directDownload.href = resource.url;
+        directDownload.target = "_blank";
+        item.appendChild(directDownload);
+
+        li.appendChild(item);
+        li.appendChild(div);
         list.appendChild(li);
       }
     })();
