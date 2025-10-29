@@ -204,39 +204,13 @@
   <section class="glass">
     <h2>📁 Root</h2>
     <ul id="list" style="padding-left:14px">
+      <li>loading...</li>
     </ul>
   </section>
   <script>
     ; (() => {
       const github_url = "https://github.com/jtorleon-studios-team/";
-      const resources = [
-        {
-          url: "com/github/tmslpm/gradle-include-properties/1.0.0/gradle-include-properties-1.0.0.jar",
-          id: "gradle-include-properties",
-          version: "1.0.0"
-        },
-        {
-          url: "com/github/tmslpm/gradle-minify-json-resources/1.0.0/gradle-minify-json-resources-1.0.0.jar",
-          id: "gradle-minify-json-resources",
-          version: "1.0.0"
-        },
-        {
-          url: "com/github/jtorleonstudios/gradle-generate-env-class/1.0.0/gradle-generate-env-class-1.0.0.jar",
-          id: "gradle-generate-env-class",
-          version: "1.0.0"
-        }, 
-        {
-          url: "com/github/jtorleonstudios/gradle-gen-mixins-file/1.0.0/gradle-gen-mixins-file-1.0.0.jar",
-          id: "gradle-gen-mixins-file",
-          version: "1.0.0"
-        }, 
-        {
-          url: "com/github/jtorleonstudios/gradle-gen-packmcmeta-file/1.0.0/gradle-gen-packmcmeta-file-1.0.0.jar",
-          id: "gradle-gen-packmcmeta-file",
-          version: "1.0.0"
-        }
-      ];
-
+ 
       function createExample(label, lines, schematic = "") {
         const container = document.createElement("div");
 
@@ -270,16 +244,37 @@
         return container;
       }
 
-      const list = document.getElementById("list");
-      for (let i = 0; i < resources.length; i++) {
-        const resource = resources[i];
+      function createBtnGithub(resourceId) {
+        const btn = document.createElement("a");
+        btn.textContent = `[github] `;
+        btn.href = github_url + resourceId;
+        btn.target = "_blank";
+        return btn;
+      }
 
+      function createBtnHelpFolding(div) {
+        const btn = document.createElement("a");
+        btn.textContent = `[help] `;
+        btn.href = "javascript:void(0)";
+        btn.onclick = () => {
+          if (div.style.display === "block") {
+            div.style.display = "none";
+          } else {
+            document.querySelectorAll(".itemDiv").forEach(v => v.style.display = "none");
+            div.style.display = "block";
+          } 
+        };
+        return btn;
+      }
+
+      function insertPlugin(resource) {
         const li = document.createElement("li");
-        li.textContent = i === resources.length - 1 ? "└─ " : "├─ ";
+        li.textContent = "├─ ";//"└─ "
 
         const div = document.createElement("div");
         div.className = "itemDiv";
         div.style.display = "none";
+        li.appendChild(div);
 
         div.appendChild(createExample(
           " 1) Add the public Maven repository in your settings.gradle:",
@@ -305,38 +300,46 @@
           `id '${resource.id}' version '${resource.version}'`
         ));
 
-        /* item name [show] [download] */
         const item = document.createElement("span");
         item.textContent = resource.id + " ";
-
-        /* [help] */
-        const directShow = document.createElement("a");
-        directShow.textContent = `[help] `;
-        directShow.href = "javascript:void(0)";
-        directShow.onclick = () => {
-          document.querySelectorAll(".itemDiv").forEach(v => v.style.display = "none");
-          div.style.display = div.style.display === "block" ? "none" : "block";
-        };
-        item.appendChild(directShow);
-
-        /* [github] */
-        const directRepos = document.createElement("a");
-        directRepos.textContent = `[github] `;
-        directRepos.href = github_url + resource.id;
-        directRepos.target = "_blank";
-        item.appendChild(directRepos);
-
-        /* [download] */
-        const directDownload = document.createElement("a");
-        directDownload.textContent = `[download] `;
-        directDownload.href = `/maven/${resource.url}`;
-        directDownload.target = "_blank";
-        item.appendChild(directDownload);
-
+        item.appendChild(createBtnHelpFolding(div));
+        item.appendChild(createBtnGithub(resource.id));
         li.appendChild(item);
-        li.appendChild(div);
-        list.appendChild(li);
+
+        document.getElementById("list").appendChild(li);
       }
+
+      fetch("https://raw.githubusercontent.com/jtorleon-studios-team/maven/refs/heads/main/public/data/all.json")
+        .then((response) => {
+          if (response.status == 200) return response.json();
+          throw new Error(response.status)
+        })
+        .then((data) => {
+          document.getElementById("list").innerHTML = "";
+
+          const plugin = [];
+          data = data.filter(item => {
+            if (item.type === "plugin") {
+              plugin.push(item.groupId);
+              return false;
+            }
+            return true;
+          });
+
+          for (const item of data) {
+            if (plugin.includes(`${item.artifactId}.${item.artifactId}.gradle`)) {
+              item.type = "plugin";
+              insertPlugin({
+                id: item.artifactId,
+                version: item.versions[item.versions.length-1]
+              })
+            }
+          }
+        }) 
+        .catch((error) => {
+          document.getElementById("list").innerHTML = "error";
+          console.error(error);
+        });
     })();
   </script>
 </body>
