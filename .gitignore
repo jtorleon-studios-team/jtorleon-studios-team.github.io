@@ -1,27 +1,7 @@
-# Environment variables
-*.env
-*.env.local
-*.env.development.local
-*.env.test.local
-*.env.production.local
  
-# Angular
 /dist/
 /node_modules/ 
-/.angular
-/.cache
 /coverage/
-/e2e/test-results/
-*.js.map
-*.css.map
-
-# IDE
-/.vscode/
-/.idea/
-/*.sublime-project
-/*.sublime-workspace
-*.sublime-settings
-*.tmproj
 
 # Operating System
 .DS_Store
@@ -55,9 +35,6 @@ yarn-error.log*
 /out-tsc/
 /target/
 
-# Temporary files
+# Temporary filesx
 *.tmp
 *.temp
-
-# Visual Studio Code settings
-.vscode/

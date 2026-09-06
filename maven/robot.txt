@@ -1,3 +1,0 @@
-User-agent: *
-Disallow: /maven/
-Sitemap: https://jtorleon-studios-team-github-io.pages.dev/sitemap.xml
