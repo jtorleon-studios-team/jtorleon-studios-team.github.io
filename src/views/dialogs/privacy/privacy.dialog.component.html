@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>Privacy & Policy</h2>
+<mat-dialog-content class="mat-typography">
+  @for (v of this.privacyText; track $index) { @switch (v[0]) {
+  @case (3) { <h5>{{v[1]}}</h5> }
+  @case (2) { <h4>{{v[1]}}</h4> }
+  @case (1) { <h3>{{v[1]}}</h3> }
+  @default { <p>{{v[1]}}</p> }
+  }} 
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <a download href="privacy-policy.txt" mat-button mat-dialog-close>Download</a>
+</mat-dialog-actions>
