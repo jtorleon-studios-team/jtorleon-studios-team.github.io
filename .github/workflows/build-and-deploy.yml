@@ -1,9 +1,7 @@
 name: build-and-deploy
 run-name: ${{ github.actor }} - build angular and deploy gh page 
 on: 
-  push:
-    paths:
-      - 'src/**'
+  #disabled# push: paths: - 'src/**'
   workflow_dispatch:
 permissions:
   contents: read
