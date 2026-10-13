@@ -1,48 +1,49 @@
 {
-  "name": "jtorleon-studios-link-tree",
-  "version": "1.0.0",
-  "private": false,
+  "name": "my-website",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "afterDeploy": "node ./.github/scripts/afterDeploy.js",
-    "start": "ng serve",
-    "build": "ng build && npm run afterDeploy",
-    "build-dev": "ng build --c development && npm run afterDeploy",
-    "extract-i18n": "ng extract-i18n --format json --output-path src/locale",
-    "lint": "ng lint"
+    "docusaurus": "docusaurus",
+    "start": "docusaurus start",
+    "build": "docusaurus build",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
+    "clear": "docusaurus clear",
+    "serve": "docusaurus serve",
+    "write-translations": "docusaurus write-translations",
+    "write-heading-ids": "docusaurus write-heading-ids",
+    "typecheck": "tsc"
   },
   "dependencies": {
-    "@angular/animations": "^18.2.7",
-    "@angular/cdk": "^18.2.14",
-    "@angular/common": "^18.2.7",
-    "@angular/compiler": "^18.2.7",
-    "@angular/core": "^18.2.7",
-    "@angular/forms": "^18.2.7",
-    "@angular/material": "^18.2.14",
-    "@angular/platform-browser-dynamic": "^18.2.7",
-    "@angular/router": "^18.2.7",
-    "rxjs": "~7.8.0",
-    "tslib": "^2.3.0",
-    "zone.js": "^0.14.10"
+    "@docusaurus/core": "3.10.2",
+    "@docusaurus/faster": "3.10.2",
+    "@docusaurus/preset-classic": "3.10.2",
+    "@mdx-js/react": "^3.0.0",
+    "clsx": "^2.0.0",
+    "prism-react-renderer": "^2.3.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^18.2.7",
-    "@angular-eslint/builder": "20.4.0",
-    "@angular-eslint/eslint-plugin": "20.4.0",
-    "@angular-eslint/eslint-plugin-template": "20.4.0",
-    "@angular-eslint/schematics": "20.4.0",
-    "@angular-eslint/template-parser": "20.4.0",
-    "@angular/cli": "^18.2.7",
-    "@angular/compiler-cli": "^18.2.7",
-    "@angular/localize": "^18.2.7",
-    "@angular/platform-browser": "^18.2.7",
-    "@typescript-eslint/eslint-plugin": "7.11.0",
-    "@typescript-eslint/parser": "7.11.0",
-    "eslint": "8.57.1",
-    "globals": "^15.2.0",
-    "prettier": "^3.5.3",
-    "typescript": "~5.5.4"
+    "@docusaurus/module-type-aliases": "3.10.2",
+    "@docusaurus/tsconfig": "3.10.2",
+    "@docusaurus/types": "3.10.2",
+    "@types/react": "^19.0.0",
+    "typescript": "~6.0.2"
   },
-  "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "*"
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 3 chrome version",
+      "last 3 firefox version",
+      "last 5 safari version"
+    ]
+  },
+  "engines": {
+    "node": ">=20.0"
   }
 }
