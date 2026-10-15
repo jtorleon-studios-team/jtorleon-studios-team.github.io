@@ -1,0 +1,21 @@
+[submodule "modules/better-villages"]
+	path = modules/better-villages
+	url = https://github.com/jtorleon-studios-team/better-villages
+[submodule "modules/awesome-dungeon"]
+	path = modules/awesome-dungeon
+	url = https://github.com/jtorleon-studios-team/awesome-dungeon
+[submodule "modules/awesome-dungeon-end"]
+	path = modules/awesome-dungeon-end
+	url = https://github.com/jtorleon-studios-team/awesome-dungeon-end
+[submodule "modules/awesome-dungeon-nether"]
+	path = modules/awesome-dungeon-nether
+	url = https://github.com/jtorleon-studios-team/awesome-dungeon-nether
+[submodule "modules/awesome-dungeon-ocean"]
+	path = modules/awesome-dungeon-ocean
+	url = https://github.com/jtorleon-studios-team/awesome-dungeon-ocean
+[submodule "modules/dungeon-clusters"]
+	path = modules/dungeon-clusters
+	url = https://github.com/jtorleon-studios-team/dungeon-clusters
+[submodule "modules/library-ferret"]
+	path = modules/library-ferret
+	url = https://github.com/jtorleon-studios-team/library-ferret

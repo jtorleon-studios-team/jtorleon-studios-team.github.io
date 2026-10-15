@@ -1,6 +1,6 @@
-import themeConfig from "./theme.config";
-import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
+import type { Config } from "@docusaurus/types";
+import themeConfig from "./theme.config";
 
 export default {
   url: "https://your-docusaurus-site.example.com",
