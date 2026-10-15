@@ -21,7 +21,7 @@ const config: Config = {
       "classic",
       {
         docs: {
-          sidebarPath: "./sidebars.ts",
+          sidebarPath: "./config/sidebars.ts",
           editUrl: "#", // TODO
         },
         blog: {
