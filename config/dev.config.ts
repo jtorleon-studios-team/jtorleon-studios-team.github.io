@@ -1,8 +1,8 @@
-import {themes as prismThemes} from "prism-react-renderer";
+import themeConfig from "./theme.config"
 import type {Config} from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
-
-const config: Config = {
+  
+export default {
   url: "https://your-docusaurus-site.example.com",
   baseUrl: "/", 
   onBrokenLinks: "throw",
@@ -21,7 +21,7 @@ const config: Config = {
       "classic",
       {
         docs: {
-          sidebarPath: "./config/sidebars.ts",
+          sidebarPath: "./config/sidebars.config.ts",
           editUrl: "#", // TODO
         },
         blog: {
@@ -41,37 +41,5 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
-
-   // TODO
-  themeConfig: { 
-    image: "img/docusaurus-social-card.jpg",
-    colorMode: {
-      respectPrefersColorScheme: true,
-    },
-    navbar: {
-      logo: {
-        alt: "My Site Logo",
-        src: "img/logo.svg",
-      },
-      items: [
-        {
-          type: "docSidebar",
-          sidebarId: "tutorialSidebar",
-          position: "left",
-          label: "Tutorial",
-        },
-        {to: "/blog", label: "Blog", position: "left"},
-      ],
-    },
-    footer: {
-      style: "dark",
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
-    },
-    prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
-    },
-  } satisfies Preset.ThemeConfig,
-};
-
-export default config;
+  themeConfig,
+} satisfies Config;
