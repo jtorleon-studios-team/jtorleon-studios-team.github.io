@@ -1,0 +1,21 @@
+FROM mcr.microsoft.com/devcontainers/base:noble@sha256:7ee7da33a68d997971660d91ecc8372e55a38a777c3c6bd6808daf91928052db
+
+ENV DO_NOT_TRACK=1
+
+ARG BUN_VERSION
+ARG BUN_SHA256_X64
+ARG BUN_SHA256_AARCH64
+ARG DEV_CONTAINER_CLI
+
+RUN [ -n "$DEV_CONTAINER_CLI" ] || { printf "\nERROR: This Dockerfile needs to be built with VSCode !\n"; exit 1; }
+
+RUN apt-get update \
+  && export DEBIAN_FRONTEND=noninteractive \
+  && apt-get -y install --no-install-recommends git-lfs 2>&1 \
+  && rm -rf /var/lib/apt/lists/*
+
+COPY install.bash /tmp/install-bun.bash
+
+RUN chmod +x /tmp/install-bun.bash \
+  && /tmp/install-bun.bash "$BUN_VERSION" "$BUN_SHA256_X64" "$BUN_SHA256_AARCH64" \
+  && rm /tmp/install-bun.bash

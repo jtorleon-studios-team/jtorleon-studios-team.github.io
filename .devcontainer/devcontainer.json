@@ -1,4 +1,37 @@
 {
-	"name": "jtorleon.studios",
-	"image": "mcr.microsoft.com/devcontainers/javascript-node:22"
+  "name": "Bun Dev Container",
+  "build": {
+    "dockerfile": "DockerFile",
+    "args": {
+      "DEV_CONTAINER_CLI": "true",
+      "BUN_VERSION": "bun-v1.4.0",
+      "BUN_SHA256_X64": "2d03fb5fb83ac8b567aca0a281b2ce1a1a19d488f56c2968d88c3f25e92fe452",
+      "BUN_SHA256_AARCH64": "4b1a332ee861983eb93bcfe6f770fff94e3e31b2c388bdaea3c8ed35e58eed0e"
+    }
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {
+      "installTools": false
+    },
+    "ghcr.io/devcontainers/features/common-utils": {
+      "installZsh": true,
+      "configureZshAsDefaultShell": true
+    }
+  },
+  "forwardPorts": [
+    3000
+  ],
+  "customizations": {
+    "codespaces": {
+      "openFiles": [
+        "README.md"
+      ]
+    },
+    "vscode": {
+      "extensions": [
+        "oven.bun-vscode@0.0.32",
+        "biomejs.biome@3.6.1"
+      ]
+    }
+  }
 }
