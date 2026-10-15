@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
-    "start": "docusaurus start --config config/dev.config.ts",
+    "start": "docusaurus start --config config/dev.config.ts --no-open",
     "build": "docusaurus build --config config/dev.config.ts",
     "swizzle": "docusaurus swizzle --config config/dev.config.ts",
     "deploy": "docusaurus deploy --config config/dev.config.ts",
@@ -12,7 +12,12 @@
     "serve": "docusaurus serve --config config/dev.config.ts",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "lint": "biome lint",
+    "lint:fix": "biome lint --write",
+    "format": "biome format --write",
+    "check": "biome check --write",
+    "tree": "find . -not -path '*/node_modules/*' -not -path '*/.git/*' | sort"
   },
   "dependencies": {
     "@docusaurus/core": "3.10.2",
@@ -25,6 +30,10 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.5.15",
+    "@types/bun": "latest",
+    "@types/node": "^26.2.0",
+    "@socketsecurity/bun-security-scanner": "^1.1.2",
     "@docusaurus/module-type-aliases": "3.10.2",
     "@docusaurus/tsconfig": "3.10.2",
     "@docusaurus/types": "3.10.2",

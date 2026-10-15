@@ -1,10 +1,10 @@
-import themeConfig from "./theme.config"
-import type {Config} from "@docusaurus/types";
+import themeConfig from "./theme.config";
+import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
-  
+
 export default {
   url: "https://your-docusaurus-site.example.com",
-  baseUrl: "/", 
+  baseUrl: "/",
   onBrokenLinks: "throw",
   title: "JTorleon Studios",
   tagline: "JTorleon Studios Team",

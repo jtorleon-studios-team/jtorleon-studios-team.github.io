@@ -3,7 +3,7 @@
   "presentation": {
     "showReuseMessage": false,
     "panel": "shared",
-    "clear": true,
+    "clear": true
   },
   "tasks": [
     {
@@ -15,7 +15,7 @@
       },
       "group": "test",
       "type": "shell",
-      "command": "npm run start -- --no-open"
+      "command": "bun run start"
     },
     {
       "label": "build",
@@ -26,8 +26,7 @@
       },
       "group": "build",
       "type": "shell",
-      "command": "npm run build"
+      "command": "bun run build"
     }
   ]
 }
-

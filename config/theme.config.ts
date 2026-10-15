@@ -1,7 +1,7 @@
-import {themes as prismThemes} from "prism-react-renderer";
-import type {ThemeConfig} from "@docusaurus/preset-classic";
+import { themes as prismThemes } from "prism-react-renderer";
+import type { ThemeConfig } from "@docusaurus/preset-classic";
 
-export default { 
+export default {
   image: "img/docusaurus-social-card.jpg",
   colorMode: {
     respectPrefersColorScheme: true,
@@ -18,10 +18,10 @@ export default {
         position: "left",
         label: "Tutorial",
       },
-      { 
-        to: "/blog", 
-        label: "Blog", 
-        position: "left"
+      {
+        to: "/blog",
+        label: "Blog",
+        position: "left",
       },
     ],
   },
@@ -33,4 +33,4 @@ export default {
     theme: prismThemes.github,
     darkTheme: prismThemes.dracula,
   },
-} satisfies ThemeConfig
+} satisfies ThemeConfig;

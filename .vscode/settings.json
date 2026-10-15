@@ -1,5 +1,4 @@
 {
-
   // Telemetry
 
   "telemetry.telemetryLevel": "off",
@@ -11,17 +10,17 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-      "README.md": "*.md, CODEOWNERS",
-      ".env": ".env.*"
+    "README.md": "*.md, CODEOWNERS",
+    ".env": ".env.*"
   },
 
-  // Explorer File Exclude 
+  // Explorer File Exclude
 
   "files.exclude": {
     "**/build": true,
     "**/.docusaurus": true,
     "**/node_modules": true,
-    ".gitignore": false,      // << GITIGNORE FILE
-    ".gitattributes": false,
-},
+    ".gitignore": false, // << GITIGNORE FILE
+    ".gitattributes": false
+  }
 }
