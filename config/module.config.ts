@@ -1,11 +1,10 @@
-// config/modules.ts
 import fs from "node:fs";
 import path from "node:path";
 import type { NavbarItem } from "@docusaurus/theme-common";
 import type { PluginConfig } from "@docusaurus/types";
+import { GITHUB_ORG } from "./constant.config";
 
 const MODULES_DIR = path.resolve(__dirname, "../modules");
-const ORG = "https://github.com/jtorleon-studios-team";
 
 export const modules = fs
   .readdirSync(MODULES_DIR, { withFileTypes: true })
@@ -25,6 +24,6 @@ export const modulePlugins: PluginConfig[] = modules.map((name) => [
     id: name,
     path: path.join(MODULES_DIR, name, "docs"),
     routeBasePath: name,
-    editUrl: `${ORG}/${name}/edit/main/`,
+    editUrl: `${GITHUB_ORG}/${name}/edit/main/`,
   },
 ]);

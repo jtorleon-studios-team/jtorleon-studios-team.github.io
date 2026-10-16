@@ -1,8 +1,8 @@
 jtl:
   name: JTorleon Studios Team
-  title: Org
+  title: Organization
   url: https://github.com/jtorleon-studios-team
-  image_url: https://avatars.githubusercontent.com/u/175043055?s=200&v=4
+  image_url: /img/0/apple-touch-icon.png
   page: true
   socials:
     github: jtorleon-studios-team

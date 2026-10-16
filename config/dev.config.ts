@@ -1,15 +1,16 @@
 import type * as Preset from "@docusaurus/preset-classic";
 import type { Config } from "@docusaurus/types";
+import { ASSET_TARGET } from "./constant.config";
 import { modulePlugins } from "./module.config";
 import themeConfig from "./theme.config";
 
 export default {
-  url: "https://your-docusaurus-site.example.com",
+  url: "http://localhost:3000/",
   baseUrl: "/",
   onBrokenLinks: "throw",
-  title: "JTorleon Studios",
-  tagline: "JTorleon Studios Team",
-  favicon: "img/favicon.ico",
+  title: "JTorleon Studios", // TODO
+  tagline: "JTorleon Studios Team", // TODO
+  favicon: `img/${ASSET_TARGET}/favicon.ico`,
   future: {
     v4: true,
   },

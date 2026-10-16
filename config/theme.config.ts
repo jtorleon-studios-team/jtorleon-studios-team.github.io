@@ -1,16 +1,17 @@
 import type { ThemeConfig } from "@docusaurus/preset-classic";
 import { themes as prismThemes } from "prism-react-renderer";
+import { ASSET_TARGET, NAME } from "./constant.config";
 import { moduleNavbarItems } from "./module.config";
 
 export default {
-  image: "img/docusaurus-social-card.jpg",
+  //image: "img/docusaurus-social-card.jpg", // TODO
   colorMode: {
     respectPrefersColorScheme: true,
   },
   navbar: {
     logo: {
-      alt: "My Site Logo",
-      src: "img/logo.svg",
+      alt: `${NAME} Logo`,
+      src: `img/${ASSET_TARGET}/favicon-32x32.png`,
     },
     items: [
       {
@@ -27,7 +28,7 @@ export default {
   },
   footer: {
     style: "dark",
-    copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+    copyright: `Copyright © ${new Date().getFullYear()} ${NAME}. Built with Docusaurus.`,
   },
   prism: {
     theme: prismThemes.github,
