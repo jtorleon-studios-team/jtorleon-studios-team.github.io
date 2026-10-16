@@ -1,5 +1,6 @@
 import type * as Preset from "@docusaurus/preset-classic";
 import type { Config } from "@docusaurus/types";
+import { modulePlugins } from "./module.config";
 import themeConfig from "./theme.config";
 
 export default {
@@ -20,10 +21,7 @@ export default {
     [
       "classic",
       {
-        docs: {
-          sidebarPath: "./config/sidebars.config.ts",
-          editUrl: "#", // TODO
-        },
+        docs: false,
         blog: {
           showReadingTime: true,
           editUrl: "#", // TODO
@@ -41,5 +39,6 @@ export default {
       } satisfies Preset.Options,
     ],
   ],
+  plugins: [...modulePlugins],
   themeConfig,
 } satisfies Config;

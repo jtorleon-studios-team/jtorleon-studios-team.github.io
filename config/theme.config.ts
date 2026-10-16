@@ -1,5 +1,6 @@
-import { themes as prismThemes } from "prism-react-renderer";
 import type { ThemeConfig } from "@docusaurus/preset-classic";
+import { themes as prismThemes } from "prism-react-renderer";
+import { moduleNavbarItems } from "./module.config";
 
 export default {
   image: "img/docusaurus-social-card.jpg",
@@ -13,10 +14,9 @@ export default {
     },
     items: [
       {
-        type: "docSidebar",
-        sidebarId: "tutorialSidebar",
-        position: "left",
-        label: "Tutorial",
+        type: "dropdown",
+        label: "Mods",
+        items: moduleNavbarItems,
       },
       {
         to: "/blog",
