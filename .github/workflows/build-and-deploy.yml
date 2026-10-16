@@ -1,12 +1,12 @@
 name: build-and-deploy
-run-name: ${{ github.actor }} - build angular and deploy gh page 
-on: 
+run-name: ${{ github.actor }} - build angular and deploy gh page
+on:
   #disabled# push: paths: - 'src/**'
   workflow_dispatch:
 permissions:
   contents: read
   pages: write
-  id-token: write 
+  id-token: write
 concurrency:
   group: "pages"
   cancel-in-progress: false
@@ -20,12 +20,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
+        with:
+          lfs: true
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: "20.13.0"
-  
+
       - name: Remove node_modules and package-lock.json
         run: |
           rm -rf node_modules package-lock.json
